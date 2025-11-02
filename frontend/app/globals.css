@@ -1,0 +1,127 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to pure white background with purple accents */
+  --background: 0 0% 100%; /* Pure white background */
+  --foreground: 260 60% 25%; /* Deep purple for text */
+  --card: 0 0% 100%; /* White cards */
+  --card-foreground: 260 60% 25%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 260 60% 25%;
+  --primary: 270 80% 60%; /* Bright purple/magenta accent */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 270 60% 80%; /* Light purple for secondary elements */
+  --secondary-foreground: 260 60% 25%;
+  --muted: 240 10% 96%; /* Very light gray for muted elements */
+  --muted-foreground: 260 30% 45%;
+  --accent: 270 80% 60%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 15% 90%; /* Light gray borders */
+  --input: 240 15% 95%; /* Light gray inputs */
+  --ring: 270 80% 60%;
+  --chart-1: 270 80% 60%;
+  --chart-2: 270 60% 80%;
+  --chart-3: 260 30% 45%;
+  --chart-4: 240 20% 70%;
+  --chart-5: 270 60% 45%;
+  --radius: 1.5rem;
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 260 60% 25%;
+  --sidebar-primary: 270 80% 60%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 270 60% 95%; /* Very light purple accent */
+  --sidebar-accent-foreground: 260 60% 25%;
+  --sidebar-border: 240 15% 90%;
+  --sidebar-ring: 270 80% 60%;
+}
+
+.dark {
+  /* Dark mode with HOPPR purple theme */
+  --background: 260 50% 12%; /* Dark navy/purple background */
+  --foreground: 0 0% 98%;
+  --card: 260 40% 18%;
+  --card-foreground: 0 0% 98%;
+  --popover: 260 40% 18%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 270 80% 55%; /* Bright purple/magenta */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 260 50% 35%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 260 30% 25%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 270 80% 55%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 260 30% 30%;
+  --input: 260 30% 30%;
+  --ring: 270 80% 55%;
+  --chart-1: 270 80% 55%;
+  --chart-2: 260 50% 35%;
+  --chart-3: 0 0% 80%;
+  --chart-4: 240 20% 50%;
+  --chart-5: 270 60% 45%;
+  --sidebar: 260 40% 18%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 270 80% 55%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 260 30% 25%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 260 30% 30%;
+  --sidebar-ring: 270 80% 55%;
+}
+
+@theme inline {
+  --font-sans: "Inter", "Inter Fallback", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
