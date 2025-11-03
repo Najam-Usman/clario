@@ -1,6 +1,6 @@
 # clario - AI-Powered Radiology Analysis Platform
 
-## 🏆 Hackathon Project Overview
+## 🏆 Hackathon Winning Project
 
 **clario** is an intelligent medical imaging analysis platform that transforms complex radiology scans into clear, patient-friendly reports. Built for healthcare accessibility, clario uses advanced AI models to analyze chest X-rays, CT scans, and MRIs, providing instant, understandable results with actionable next steps.
 
@@ -28,8 +28,7 @@
 - **Next.js 16** - React framework
 - **TypeScript** - Type-safe development
 - **Tailwind CSS** - Modern styling
-- **jsPDF** - Client-side PDF generation
-- **Framer Motion** - Scroll animations and transitions
+
 
 ---
 
@@ -61,7 +60,7 @@ Before running the application, ensure you have:
 
 ```bash
 git clone <repository-url>
-cd mtchacks
+cd clario
 ```
 
 ### 2. Backend Setup
@@ -176,38 +175,62 @@ The frontend will start on `http://localhost:3000`.
 ## 📁 Project Structure
 
 ```
-mtchacks/
-├── frontend/                 # Next.js frontend application
-│   ├── app/                  # Next.js app router pages
-│   │   ├── api/             # API routes
-│   │   │   ├── upload/      # File upload handler
-│   │   │   ├── analyze/     # GPT analysis proxy
-│   │   │   ├── status/      # Pipeline status checker
-│   │   │   ├── image/       # Image preview handler
-│   │   │   └── generate-pdf/ # PDF generation (legacy)
-│   │   ├── intake/          # Questionnaire page
-│   │   ├── results/         # Results display page
-│   │   └── upload/          # File upload page
-│   ├── components/          # React components
-│   │   ├── ui/              # UI component library
-│   │   ├── confidence-gauge.tsx
-│   │   └── animate-on-scroll.tsx # Scroll animations
-│   ├── lib/                 # Utility libraries
-│   │   ├── analysis-parser.ts    # Parse AI outputs
-│   │   ├── pdf-generator.ts      # PDF report generation
-│   │   ├── questionnaire-utils.ts # Questionnaire formatting
-│   │   └── utils.ts             # General utilities
-│   ├── public/              # Static assets (logos, images)
-│   ├── templates/           # HTML templates (PDF generation)
-│   └── package.json
+clario/
+├── README.md               # This file
+├── requirements.txt        # Python dependencies
+├── medical_api.py          # Flask REST API server
+├── pipeline.py             # Hoppr AI pipeline orchestrator  
+├── gptapi.py               # OpenAI GPT integration
+├── image_to_dicom.py       # Convert PNG/JPG to DICOM format
+├── dicom_to_image.py       # Convert DICOM to PNG for preview
 │
-├── medical_api.py           # Flask REST API server
-├── pipeline.py              # Hoppr AI pipeline orchestrator
-├── gptapi.py                # OpenAI GPT integration
-├── image_to_dicom.py        # Convert PNG/JPG to DICOM format
-├── dicom_to_image.py        # Convert DICOM to PNG for preview
-├── requirements.txt         # Python dependencies
-└── README.md               # This file
+└── frontend/               # Next.js frontend application
+    ├── .next/              # Next.js build cache
+    ├── node_modules/       # Node.js dependencies  
+    ├── package.json        # Node.js package configuration
+    ├── pnpm-lock.yaml     # Package lock file
+    ├── next.config.mjs    # Next.js configuration
+    ├── tsconfig.json      # TypeScript configuration
+    ├── postcss.config.mjs # PostCSS configuration
+    ├── components.json    # Shadcn/ui components config
+    ├── next-env.d.ts     # Next.js TypeScript declarations
+    │
+    ├── app/               # Next.js app router pages
+    │   ├── globals.css    # Global styles
+    │   ├── layout.tsx     # Root layout component
+    │   ├── page.tsx       # Home page
+    │   ├── upload/        # File upload page
+    │   ├── intake/        # Questionnaire page  
+    │   ├── results/       # Results display page
+    │   └── api/           # API routes
+    │       ├── upload/    # File upload handler
+    │       ├── analyze/   # Analysis proxy
+    │       ├── status/    # Pipeline status checker
+    │       ├── image/     # Image preview handler
+    │       └── generate-pdf/ # PDF generation
+    │
+    ├── components/        # React components
+    │   ├── animate-on-scroll.tsx # Scroll animations
+    │   ├── confidence-gauge.tsx  # Confidence visualization
+    │   ├── tag-input.tsx        # Tag input component
+    │   ├── theme-provider.tsx   # Theme context
+    │   └── ui/                  # UI component library (shadcn/ui)
+    │
+    ├── lib/              # Utility libraries
+    │   ├── analysis-parser.ts     # Parse AI outputs
+    │   ├── pdf-generator.ts       # PDF report generation
+    │   ├── questionnaire-utils.ts # Questionnaire formatting
+    │   └── utils.ts              # General utilities
+    │
+    ├── hooks/            # React hooks
+    ├── public/           # Static assets
+    │   ├── clario-logo.png
+    │   ├── hoppr-logo.jpeg
+    │   ├── chest-xray-medical-scan.jpg
+    │   └── placeholder.svg
+    │
+    └── templates/        # HTML templates
+        └── radiology-report.html # PDF template
 ```
 
 ---
