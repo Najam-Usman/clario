@@ -67,29 +67,21 @@ Note: This is a demonstration analysis for testing purposes.
 """
 
 def get_mock_gpt_analysis():
-    return """
-Based on the medical imaging analysis provided, here is a patient-friendly interpretation:
-
-SUMMARY:
-Your chest X-ray shows normal findings with no concerning abnormalities detected.
-
-WHAT THIS MEANS:
-- Your heart appears normal in size and position
-- Your lungs are clear with no signs of infection, fluid, or other problems
-- All visible structures appear healthy and within normal limits
-- No immediate medical concerns were identified
-
-NEXT STEPS:
-- These results are reassuring and suggest no acute issues
-- Continue with your regular healthcare routine
-- If you have ongoing symptoms, discuss them with your doctor
-- Follow your doctor's recommendations for any routine follow-up care
-
-IMPORTANT NOTE:
-This interpretation is for educational purposes. Always discuss your results with your healthcare provider for personalized medical advice and to address any specific concerns you may have.
-
-Note: This is a demonstration analysis for testing purposes.
-"""
+    return """{
+  "explanation": "Your chest X-ray shows normal imaging findings with no acute cardiopulmonary abnormalities detected. Your heart appears normal in size and position, and your lungs are clear with no signs of infection, fluid, or consolidation.\\n\\nGiven that you reported shortness of breath and fatigue, combined with your family history of heart disease, it's important to recognize that a normal chest X-ray doesn't rule out all potential causes of your symptoms. Young adults with these symptoms and a family history of cardiovascular disease may need additional evaluation beyond what a chest X-ray can show.\\n\\nYour family history of heart disease is particularly relevant at your age of 19, as it suggests you should maintain regular cardiovascular monitoring. While the X-ray appears normal, your symptoms should not be ignored, and further cardiac evaluation may be recommended.",
+  "keyFindings": [
+    "Normal heart size and position",
+    "Clear bilateral lung fields",
+    "No acute abnormalities"
+  ],
+  "nextSteps": [
+    "Schedule a follow-up appointment with your doctor to discuss your shortness of breath and fatigue in detail",
+    "Discuss your family history of heart disease with your healthcare provider, as additional cardiac testing may be recommended",
+    "Monitor your symptoms and keep a diary of when shortness of breath occurs to help your doctor better understand your condition"
+  ],
+  "severity": "mild",
+  "summary": "While your chest X-ray shows normal findings, your reported symptoms combined with family history suggest you should follow up with your healthcare provider for further evaluation."
+}"""
 
 @app.route('/health', methods=['GET'])
 def health_check():
